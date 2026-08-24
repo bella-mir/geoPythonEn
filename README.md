@@ -31,15 +31,12 @@ Each assignment is a Jupyter notebook with a suggested sequence of steps, so the
 
 If these materials are useful in your work or your teaching, please cite them:
 
-> Mironova, B. (2026). *Geospatial Analysis in Python*. Zenodo. https://doi.org/10.5281/zenodo.XXXXXXX
+> Mironova, B. (2026). *Geospatial Analysis in Python*. Zenodo. https://doi.org/10.5281/zenodo.22081080
 
-<!-- After the first Zenodo release, replace XXXXXXX with the concept DOI ("Cite all versions")
-     here and in the badge below, and uncomment the `doi:` line in CITATION.cff. -->
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22081080.svg)](https://doi.org/10.5281/zenodo.22081080)
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+This DOI always resolves to the latest version. To cite one specific release, use its own DOI — [10.5281/zenodo.22081081](https://doi.org/10.5281/zenodo.22081081) for v1.0.0.
 
 The materials are published under the [CC BY 4.0](LICENSE) licence: you are free to share and adapt them, including commercially, as long as you give credit.
 
-> P.S.
->
-> The original version of the course was developed in Russian — [geo-python.ru](https://geo-python.ru). The English edition is a revised adaptation of the original, with some materials and datasets replaced or updated. Translation was assisted by Claude AI and subsequently proofread by the author.
+> Adapted from the author's Russian course at [geo-python.ru](https://geo-python.ru), with some materials and datasets replaced or updated. Translation was assisted by Claude AI and proofread by the author.
