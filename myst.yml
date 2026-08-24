@@ -19,13 +19,13 @@ project:
       - file: notebooks/module_1/spData_2.ipynb
       - file: notebooks/module_1/spData_3.ipynb
       - file: notebooks/module_1/spData_4.ipynb
-      - file: notebooks/module_1/geopy_task1.ipynb
+      - file: notebooks/module_1/spData_task.ipynb
     - file: notebooks/module_2/projections_0.ipynb
       children:
       - file: notebooks/module_2/projections_1.ipynb
       - file: notebooks/module_2/projections_2.ipynb
       - file: notebooks/module_2/projections_3.ipynb
-      - file: notebooks/module_2/geopy_task2.ipynb
+      - file: notebooks/module_2/projections_task.ipynb
     - file: notebooks/module_3/geoprocessing_0.ipynb
       children:
       - file: notebooks/module_3/geoprocessing_1.ipynb
@@ -33,23 +33,23 @@ project:
       - file: notebooks/module_3/geoprocessing_3.ipynb
       - file: notebooks/module_3/geoprocessing_4.ipynb
       - file: notebooks/module_3/geoprocessing_5.ipynb
-      - file: notebooks/module_3/geopy_task3.ipynb
+      - file: notebooks/module_3/geoprocessing_task.ipynb
     - file: notebooks/module_4/networkAnalysis_0.ipynb
       children:
       - file: notebooks/module_4/networkAnalysis_1.ipynb
       - file: notebooks/module_4/networkAnalysis_2.ipynb
       - file: notebooks/module_4/networkAnalysis_3.ipynb
-      - file: notebooks/module_4/geopy_task4.ipynb
+      - file: notebooks/module_4/networkAnalysis_task.ipynb
     - file: notebooks/module_5/rasters_0.ipynb
       children:
       - file: notebooks/module_5/rasters_1.ipynb
       - file: notebooks/module_5/rasters_2.ipynb
-      - file: notebooks/module_5/geopy_task5.ipynb
+      - file: notebooks/module_5/rasters_task.ipynb
     - file: notebooks/module_6/map_0.ipynb
       children:
       - file: notebooks/module_6/map_1.ipynb
       - file: notebooks/module_6/map_2.ipynb
-      - file: notebooks/module_6/geopy_task6.ipynb
+      - file: notebooks/module_6/map_task.ipynb
     
 site:
   template: book-theme
