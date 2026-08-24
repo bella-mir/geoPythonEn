@@ -66,3 +66,46 @@ Libraries: `rasterio`, `rasterstats`, `geopandas`, `numpy`, `matplotlib`, `osmnx
 - publishing to GitHub Pages
 
 Libraries: `folium`, `geopandas`
+
+## Data
+
+All datasets used in the notebooks live in a single `data/` folder at the root of the repository, so no file is stored twice. Notebooks read them through a relative path:
+
+```python
+gdf = gpd.read_file("../../data/spb/spb_metro.geojson")
+```
+
+### `data/spb/` — Saint Petersburg (modules 1–3)
+
+| File | Content | Source |
+| --- | --- | --- |
+| `spb_admin.gpkg` | boundaries of districts and municipal units (layers `district` and `okrug`) | course materials for "Methods of Spatial Analysis", HSE University (R. Goncharov) |
+| `spb_metro.geojson` | metro stations, 2023 | [Saint Petersburg Open Data Portal](https://data.gov.spb.ru/) |
+| `spb_theaters.csv` | theatres, with coordinates in the `latitude` and `longitude` columns | [Saint Petersburg Open Data Portal](https://data.gov.spb.ru/) |
+| `spb_mkd.csv` | apartment buildings, 2020 | [Saint Petersburg Open Data Portal](https://data.gov.spb.ru/) |
+| `spb_dtp_shp/` | road accidents, January 2023 (shapefile) | [Road Accident Map](https://dtp-stat.ru) |
+
+### `data/tula/` — Tula Oblast (module 5)
+
+| File | Content | Source |
+| --- | --- | --- |
+| `tula_region_population.tif` | population raster clipped to the Tula Oblast; each pixel holds a population count | [WorldPop](https://hub.worldpop.org), Global 2000–2020 Constrained, Russia, 2020 |
+| `tula_cropped_population.tif` | the same raster clipped to the city of Tula | generated in [Raster Data Format](../module_5/rasters_1.ipynb) |
+| `tula_cropped_population_utm.tif` | the clipped raster reprojected into UTM | generated in [Raster Data Format](../module_5/rasters_1.ipynb) |
+
+### `data/vasilyevsky/` — Vasilyevsky Island (module 6)
+
+A small case study prepared in advance, so that the final module is about mapping rather than data collection.
+
+| File | Content | Source |
+| --- | --- | --- |
+| `area.geojson` | boundary of the Vasileostrovsky District | OpenStreetMap |
+| `landuse.geojson` | land use polygons | OpenStreetMap |
+| `metro.geojson` | metro stations | OpenStreetMap |
+| `isochrones.geojson` | walking isochrones of 5, 10 and 15 minutes from the stations | built with [OpenRouteService](https://openrouteservice.org) |
+
+### Images and cache
+
+Illustrations used in the text are kept next to the notebooks that reference them, in `notebooks/module_*/images/`.
+
+Data downloaded from OpenStreetMap is cached in a `cache/` folder at the root of the repository (git-ignored): the notebooks point `ox.settings.cache_folder` at it, so repeated queries are served from disk instead of hitting the OSM servers again.

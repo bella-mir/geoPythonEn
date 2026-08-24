@@ -27,26 +27,6 @@ Main topics:
 
 Each assignment is a Jupyter notebook with a suggested sequence of steps, so the techniques from the module are applied to a city you care about rather than to the example data.
 
-## Data
-
-All datasets used in the notebooks live in a single `data/` folder at the root of the repository, so no file is stored twice:
-
-| Folder | Content | Used in |
-| --- | --- | --- |
-| `data/spb/` | Saint Petersburg: district and municipal boundaries, metro stations, theatres, road accidents, residential buildings | modules 1–3 |
-| `data/tula/` | WorldPop population rasters for the Tula region | module 5 |
-| `data/vasilyevsky/` | Prepared case study for Vasilyevsky Island: district boundary, land use, metro stations, walking isochrones | module 6 |
-
-Notebooks read them through a relative path, for example:
-
-```python
-gdf = gpd.read_file("../../data/spb/spb_metro.geojson")
-```
-
-Illustrations used in the text are kept next to the notebooks that reference them, in `notebooks/module_*/images/`.
-
-Data downloaded from OpenStreetMap is cached in a `cache/` folder at the root of the repository (git-ignored): the notebooks point `ox.settings.cache_folder` at it, so repeated queries are served from disk instead of hitting the OSM servers again.
-
 > P.S.
 >
 > The original version of the course was developed in Russian — [geo-python.ru](https://geo-python.ru). The English edition is a revised adaptation of the original, with some materials and datasets replaced or updated. Translation was assisted by Claude AI and subsequently proofread by the author.
