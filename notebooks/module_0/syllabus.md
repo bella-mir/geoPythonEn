@@ -69,28 +69,13 @@ Libraries: `folium`, `geopandas`
 
 ## Data
 
-All datasets used in the notebooks live in a single `data/` folder at the root of the repository, so no file is stored twice. Notebooks read them through a relative path:
+All datasets used in the notebooks live in a single `data/` folder at the root of the repository. Notebooks read them through a relative path:
 
 ```python
 gdf = gpd.read_file("../../data/vienna/vienna_metro.geojson")
 ```
 
-Almost everything comes from the City of Vienna's open data portal, [data.wien.gv.at](https://data.wien.gv.at/), under a **CC BY 4.0** licence that asks for the attribution _Datenquelle: Stadt Wien – data.wien.gv.at_. Its geodata is served by a single WFS endpoint, so any layer can be pulled in one request — `gpd.read_file()` reads the URL directly:
-
-```
-https://data.wien.gv.at/daten/geo
-    ?service=WFS&request=GetFeature&version=1.1.0
-    &typeName=ogdwien:BEZIRKSGRENZEOGD
-    &srsName=EPSG:4326&outputFormat=json
-```
-
-The `typeName` values in the tables below are the layer names for that endpoint. The full list is in the service capabilities:
-
-```
-https://data.wien.gv.at/daten/geo?service=WFS&request=GetCapabilities&version=1.1.0
-```
-
-The script that downloads every file below is [`scripts/build_vienna_data.py`](https://github.com/bella-mir/geoPythonEn/blob/main/scripts/build_vienna_data.py).
+Almost everything comes from the City of Vienna's open data portal, [data.wien.gv.at](https://data.wien.gv.at/), under a **CC BY 4.0** licence that asks for the attribution _Datenquelle: Stadt Wien – data.wien.gv.at_. The `ogdwien:` names in the tables below are its WFS layer names, and [`scripts/build_vienna_data.py`](https://github.com/bella-mir/geoPythonEn/blob/main/scripts/build_vienna_data.py) is the script that downloads every file.
 
 ### `data/vienna/` — Vienna (modules 1–3)
 
@@ -102,7 +87,7 @@ The script that downloads every file below is [`scripts/build_vienna_data.py`](h
 | `vienna_buildings.csv` | the city's building register: year of construction, storeys, type of use, architect; geometry as WKT text in the `SHAPE` column | Gebäudeinfo Wien (`ogdwien:GEBAEUDEINFOOGD`) |
 | `vienna_playgrounds_shp/` | public playgrounds, as a shapefile | Spielplätze Wien (`ogdwien:SPIELPLATZPUNKTOGD`) |
 
-The published files use European conventions that Python does not assume by default: `vienna_top_locations.csv` is semicolon-separated with a comma as the decimal mark, and both CSVs are re-saved here as UTF-8 (the portal serves the first one as cp1252).
+The published files use European conventions that Python does not assume by default: `vienna_top_locations.csv` is semicolon-separated, with a comma as the decimal mark.
 
 ### `data/austria/` — Austria (module 5)
 
@@ -123,12 +108,10 @@ A small case study prepared in advance, so that the final module is about mappin
 | `metro.geojson` | U-Bahn stations | OpenStreetMap |
 | `isochrones.geojson` | walking isochrones of 5, 10 and 15 minutes from the stations | built with [OpenRouteService](https://openrouteservice.org) |
 
-The land use layer is the one file here that is not from OpenStreetMap: in Vienna the OSM `landuse` tag covers only about two thirds of the district, and most of its polygons are individual lawns, so the city's own survey makes for a far better mapping exercise.
+The land use layer is the one file here that is not from OpenStreetMap — in Vienna the OSM `landuse` tag covers only about two thirds of the district.
 
 These four files are rebuilt by [`scripts/build_leopoldstadt.py`](https://github.com/bella-mir/geoPythonEn/blob/main/scripts/build_leopoldstadt.py); changing one constant in it produces the same set for any other district.
 
-### Images and cache
-
-Illustrations used in the text are kept next to the notebooks that reference them, in `notebooks/module_*/images/`.
+### Cache
 
 Data downloaded from OpenStreetMap is cached in a `cache/` folder at the root of the repository (git-ignored): the notebooks point `ox.settings.cache_folder` at it, so repeated queries are served from disk instead of hitting the OSM servers again.
