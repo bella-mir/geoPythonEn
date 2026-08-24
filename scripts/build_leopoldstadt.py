@@ -80,6 +80,19 @@ metro = metro[metro.geometry.geom_type == "Point"]
 # Praterstern carries one node per line; one point per station is enough here
 metro = metro.drop_duplicates(subset="name").sort_values("name")
 metro = metro[["element", "id", "name", "geometry"]].reset_index(drop=True)
+
+# The line number is not on the OSM node, so we take it from the city's own station
+# layer (data/vienna/vienna_metro.geojson, written by build_vienna_data.py), matching
+# on position rather than on name: the two sources spell some stations differently —
+# "Messe - Prater" in OSM against "Messe Prater" in the city register.
+city = gpd.read_file(ROOT / "data" / "vienna" / "vienna_metro.geojson")[["line", "geometry"]]
+utm = metro.estimate_utm_crs()
+metro = (
+    gpd.sjoin_nearest(metro.to_crs(utm), city.to_crs(utm), how="left")
+    .drop(columns="index_right")
+    .to_crs("EPSG:4326")
+)
+metro = metro[["element", "id", "name", "line", "geometry"]]
 metro.to_file(OUT / "metro.geojson", driver="GeoJSON")
 print(f"metro.geojson      {len(metro)} stations: {', '.join(metro['name'])}")
 
