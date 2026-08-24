@@ -1,0 +1,31 @@
+{
+  "title": "Geospatial Analysis in Python",
+  "description": "<p>An open interactive guide to working with spatial data in Python: spatial data formats, coordinate reference systems, geoprocessing, network analysis, raster analysis and interactive maps. The six modules are linked into a single project on the accessibility of everyday amenities in a city of the reader's choice.</p><p>The English edition is a revised adaptation of the Russian original, <em>Геоаналитика на Python</em>.</p>",
+  "upload_type": "publication",
+  "publication_type": "book",
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "language": "eng",
+  "creators": [
+    {
+      "name": "Mironova, Bella",
+      "affiliation": ""
+    }
+  ],
+  "keywords": [
+    "geospatial analysis",
+    "python",
+    "geopandas",
+    "openstreetmap",
+    "urban data",
+    "teaching materials"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.20085908",
+      "relation": "isDerivedFrom",
+      "resource_type": "publication-book",
+      "scheme": "doi"
+    }
+  ]
+}

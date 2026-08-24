@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+title: Geospatial Analysis in Python
+message: If you use these materials, please cite them as below.
+type: dataset
+authors:
+  - family-names: Mironova
+    given-names: Bella
+abstract: >-
+  An open interactive guide to working with spatial data in Python: spatial data
+  formats, coordinate reference systems, geoprocessing, network analysis, raster
+  analysis and interactive maps, built around a single project on the
+  accessibility of everyday amenities in a city.
+keywords:
+  - geospatial analysis
+  - python
+  - geopandas
+  - openstreetmap
+  - urban data
+  - teaching materials
+license: CC-BY-4.0
+repository-code: https://github.com/bella-mir/geoPythonEn
+url: https://bella-mir.github.io/geoPythonEn/
+version: 1.0.0
+date-released: "2026-08-24"
+# doi: 10.5281/zenodo.XXXXXXX   # concept DOI — fill in after the first Zenodo release
+references:
+  - type: dataset
+    title: Геоаналитика на Python
+    authors:
+      - family-names: Mironova
+        given-names: Bella
+    doi: 10.5281/zenodo.20085908
+    notes: Russian original, of which this course is a revised adaptation

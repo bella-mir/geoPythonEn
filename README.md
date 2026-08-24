@@ -27,6 +27,19 @@ Main topics:
 
 Each assignment is a Jupyter notebook with a suggested sequence of steps, so the techniques from the module are applied to a city you care about rather than to the example data.
 
+## Citation
+
+If these materials are useful in your work or your teaching, please cite them:
+
+> Mironova, B. (2026). *Geospatial Analysis in Python*. Zenodo. https://doi.org/10.5281/zenodo.XXXXXXX
+
+<!-- After the first Zenodo release, replace XXXXXXX with the concept DOI ("Cite all versions")
+     here and in the badge below, and uncomment the `doi:` line in CITATION.cff. -->
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+
+The materials are published under the [CC BY 4.0](LICENSE) licence: you are free to share and adapt them, including commercially, as long as you give credit.
+
 > P.S.
 >
 > The original version of the course was developed in Russian — [geo-python.ru](https://geo-python.ru). The English edition is a revised adaptation of the original, with some materials and datasets replaced or updated. Translation was assisted by Claude AI and subsequently proofread by the author.
