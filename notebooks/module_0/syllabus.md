@@ -1,63 +1,68 @@
-# Модули курса
+# Course Modules
 
-Пособие состоит из **шести тематических модулей**, каждый из которых включает несколько разделов.
+The course is organised into **six thematic modules**, each containing several sections.
 
-На платформе [Boosty](https://boosty.to/bellamir) также доступны задания к каждому модулю. Все задания — этапы проекта по оценке доступности повседневных функций выбранного вами города в рамках концепции 15-минутного города.
+Each module comes with a practice assignment — a stage of a larger project in which you assess the everyday accessibility of a city of your choice through the lens of the 15-minute city concept.
 
-## [Модуль 1. Введение в геопространственные данные](../module_1/spData_0.ipynb)
+## [Module 1. Spatial Data](../module_1/spData_0.ipynb)
 
-- модели пространственных данных: векторная и растровая
-- форматы хранения пространственных данных
-- структура и свойства `GeoDataFrame`
-- чтение и запись данных
-- получение данных из OpenStreetMap
+- spatial data models: vector and raster
+- spatial data formats
+- structure and properties of `GeoDataFrame`
+- reading and writing data
+- retrieving data from OpenStreetMap
 
-Библиотеки: `pandas`, `geopandas`, `shapely`, `osmnx`, `folium`
+Libraries: `pandas`, `geopandas`, `shapely`, `osmnx`, `numpy`, `rasterio`
 
-## [Модуль 2. Проекции и системы координат (CRS)](../module_2/projections_0.ipynb)
+_Interactive previews via `.explore()` also need `folium` and `mapclassify`._
 
-- теоретические основы картографических проекций
-- универсальная поперечная проекция Меркатора (UTM)
-- географические и проецированные системы координат
-- EPSG-коды
-- перепроецирование пространственных данных
-- измерение расстояний и площадей
+## [Module 2. Projections and Coordinate Reference Systems (CRS)](../module_2/projections_0.ipynb)
 
-Библиотеки: `geopandas`, `pyproj`
+- theoretical foundations of map projections
+- Universal Transverse Mercator (UTM)
+- geographic and projected coordinate systems
+- EPSG codes
+- reprojecting spatial data
+- measuring distances and areas
 
-## [Модуль 3. Пространственные операции](../module_3/geoprocessing_0.ipynb)
+Libraries: `geopandas`, `pandas`, `osmnx`
 
-- базовые геометрические операции (buffer, centroid)
-- пространственные отношения (spatial predicates)
-- пространственные объединения данных (spatial join)
-- агрегирование по точечных данных полигонам (подсчет количества и статистика по атрибутам)
+_Coordinate systems are handled by `pyproj`, which GeoPandas uses under the hood._
 
-Библиотеки: `geopandas`
+## [Module 3. Core Geoprocessing Tools](../module_3/geoprocessing_0.ipynb)
 
-## [Модуль 4. Основы сетевого анализа](../module_4/networkAnalysis_0.ipynb)
+- basic geometry operations: buffer, dissolve, clip
+- spatial predicates
+- spatial joins
+- aggregating point data by polygon (feature counts and attribute statistics)
 
-- представление транспортной сети в виде графа
-- получение уличной сети из OpenStreetMap
-- вычисление метрик центральности
-- кратчайшие пути и матрицы расстояний
-- зоны доступности (isochrones)
-- работа с внешними API для сетевого анализа: OSRM, OpenRouteService, GraphHopper
+Libraries: `geopandas`, `pandas`, `shapely`, `osmnx`, `matplotlib`
 
-Библиотеки: `geopandas`, `networkx`, `requests`, `osmnx`
+## [Module 4. Fundamentals of Network Analysis](../module_4/networkAnalysis_0.ipynb)
 
-## [Модуль 5. Растровые данные и зональная статистика](../module_5/rasters_0.ipynb)
+- representing a transport network as a graph
+- retrieving street networks from OpenStreetMap
+- computing centrality metrics
+- shortest paths and distance matrices
+- isochrones
+- working with external routing APIs: OSRM, OpenRouteService, GraphHopper
 
-- растровая модель пространственных данных
-- структура растровых данных (ячейки, разрешение, экстент)
-- чтение растровых данных
-- растровые операции
-- зональная статистика
+Libraries: `osmnx`, `networkx`, `geopandas`, `pandas`, `shapely`, `matplotlib`, `requests`, `polyline`
 
-Библиотеки: `geopandas`, `rasterio`, `rasterstats`
+## [Module 5. Raster Analysis](../module_5/rasters_0.ipynb)
 
-## [Модуль 6. Интерактивная визуализация](../module_6/map_0.ipynb)
+- the raster spatial data model
+- raster data structure (cells, resolution, extent)
+- reading raster data
+- clipping and reprojecting rasters
+- zonal statistics
 
-- интерактивные карты
-- публикация на gh-pages
+Libraries: `rasterio`, `rasterstats`, `geopandas`, `numpy`, `matplotlib`, `osmnx`
 
-Библиотеки: `geopandas`, `matplotlib`, `folium`
+## [Module 6. Interactive Visualisation](../module_6/map_0.ipynb)
+
+- interactive maps with Folium: layers, styles, tooltips, legend
+- map controls
+- publishing to GitHub Pages
+
+Libraries: `folium`, `geopandas`
