@@ -23,3 +23,13 @@ wheels/
 
 # Virtual environments
 .venv
+
+# QGIS sidecar files
+*.qmd
+
+# Output the notebooks and assignments write when you run them
+project.gpkg
+index.html
+osm_build.geojson
+gdf_csv.*
+population_accessibility.csv
