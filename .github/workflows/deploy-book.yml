@@ -33,12 +33,17 @@ jobs:
       - name: Install dependencies
         run: uv sync
 
-      - name: Restore the OpenStreetMap cache
+      # MyST stores executed notebooks in _build/execute and only re-runs the ones
+      # whose code changed; `cache/` holds the OpenStreetMap responses osmnx downloads
+      - name: Restore the execution cache
         uses: actions/cache@v4
         with:
-          path: cache
-          key: osm-cache-${{ github.run_id }}
-          restore-keys: osm-cache-
+          path: |
+            _build/execute
+            _build/cache
+            cache
+          key: myst-execute-${{ github.sha }}
+          restore-keys: myst-execute-
 
       - name: Build the book
         # --execute runs the notebooks, so the maps and tables end up in the pages
