@@ -10,6 +10,8 @@ They are published as a [Jupyter Book](https://bella-mir.github.io/geoPythonEn/)
 
 All notebooks are self-contained: you can work through them in order, or go straight to the topic you need.
 
+The worked examples run on open data for **Vienna** — the city's own open government data plus OpenStreetMap — while the assignments are yours to carry out for a city of your choice.
+
 Main topics:
 
 - [Spatial Data](notebooks/module_1/spData_0.ipynb)

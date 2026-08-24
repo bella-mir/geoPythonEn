@@ -72,37 +72,60 @@ Libraries: `folium`, `geopandas`
 All datasets used in the notebooks live in a single `data/` folder at the root of the repository, so no file is stored twice. Notebooks read them through a relative path:
 
 ```python
-gdf = gpd.read_file("../../data/spb/spb_metro.geojson")
+gdf = gpd.read_file("../../data/vienna/vienna_metro.geojson")
 ```
 
-### `data/spb/` — Saint Petersburg (modules 1–3)
+Almost everything comes from the City of Vienna's open data portal, [data.wien.gv.at](https://data.wien.gv.at/), under a **CC BY 4.0** licence that asks for the attribution _Datenquelle: Stadt Wien – data.wien.gv.at_. Its geodata is served by a single WFS endpoint, so any layer can be pulled in one request — `gpd.read_file()` reads the URL directly:
+
+```
+https://data.wien.gv.at/daten/geo
+    ?service=WFS&request=GetFeature&version=1.1.0
+    &typeName=ogdwien:BEZIRKSGRENZEOGD
+    &srsName=EPSG:4326&outputFormat=json
+```
+
+The `typeName` values in the tables below are the layer names for that endpoint. The full list is in the service capabilities:
+
+```
+https://data.wien.gv.at/daten/geo?service=WFS&request=GetCapabilities&version=1.1.0
+```
+
+The script that downloads every file below is [`scripts/build_vienna_data.py`](https://github.com/bella-mir/geoPythonEn/blob/main/scripts/build_vienna_data.py).
+
+### `data/vienna/` — Vienna (modules 1–3)
 
 | File | Content | Source |
 | --- | --- | --- |
-| `spb_admin.gpkg` | boundaries of districts and municipal units (layers `district` and `okrug`) | course materials for "Methods of Spatial Analysis", HSE University (R. Goncharov) |
-| `spb_metro.geojson` | metro stations, 2023 | [Saint Petersburg Open Data Portal](https://data.gov.spb.ru/) |
-| `spb_theaters.csv` | theatres, with coordinates in the `latitude` and `longitude` columns | [Saint Petersburg Open Data Portal](https://data.gov.spb.ru/) |
-| `spb_mkd.csv` | apartment buildings, 2020 | [Saint Petersburg Open Data Portal](https://data.gov.spb.ru/) |
-| `spb_dtp_shp/` | road accidents, January 2023 (shapefile) | [Road Accident Map](https://dtp-stat.ru) |
+| `vienna_admin.gpkg` | boundaries of the 23 districts and the 250 census districts (layers `district` and `zaehlbezirk`) | [Bezirksgrenzen Wien](https://www.data.gv.at/katalog/dataset/stadt-wien_bezirksgrenzenwien) (`ogdwien:BEZIRKSGRENZEOGD`) and Zählbezirke Wien (`ogdwien:ZAEHLBEZIRKOGD`) |
+| `vienna_metro.geojson` | U-Bahn stations, with line number and year of opening | U-Bahnhaltestellen Wien (`ogdwien:UBAHNHALTOGD`) |
+| `vienna_top_locations.csv` | ~135 well-known places to visit — museums, cafés, concert halls, shops — with coordinates in `geo_latitude` and `geo_longitude` | [Top Locations Wien](https://www.data.gv.at/katalog/dataset/45d684ca-6ad7-4c5e-a721-64aa31795824) |
+| `vienna_buildings.csv` | the city's building register: year of construction, storeys, type of use, architect; geometry as WKT text in the `SHAPE` column | Gebäudeinfo Wien (`ogdwien:GEBAEUDEINFOOGD`) |
+| `vienna_playgrounds_shp/` | public playgrounds, as a shapefile | Spielplätze Wien (`ogdwien:SPIELPLATZPUNKTOGD`) |
 
-### `data/tula/` — Tula Oblast (module 5)
+The published files use European conventions that Python does not assume by default: `vienna_top_locations.csv` is semicolon-separated with a comma as the decimal mark, and both CSVs are re-saved here as UTF-8 (the portal serves the first one as cp1252).
 
-| File | Content | Source |
-| --- | --- | --- |
-| `tula_region_population.tif` | population raster clipped to the Tula Oblast; each pixel holds a population count | [WorldPop](https://hub.worldpop.org), Global 2000–2020 Constrained, Russia, 2020 |
-| `tula_cropped_population.tif` | the same raster clipped to the city of Tula | generated in [Raster Data Format](../module_5/rasters_1.ipynb) |
-| `tula_cropped_population_utm.tif` | the clipped raster reprojected into UTM | generated in [Raster Data Format](../module_5/rasters_1.ipynb) |
-
-### `data/vasilyevsky/` — Vasilyevsky Island (module 6)
-
-A small case study prepared in advance, so that the final module is about mapping rather than data collection.
+### `data/austria/` — Austria (module 5)
 
 | File | Content | Source |
 | --- | --- | --- |
-| `area.geojson` | boundary of the Vasileostrovsky District | OpenStreetMap |
-| `landuse.geojson` | land use polygons | OpenStreetMap |
-| `metro.geojson` | metro stations | OpenStreetMap |
+| `austria_population.tif` | population raster covering Austria; each pixel holds a population count | [WorldPop](https://hub.worldpop.org), Global 2000–2020 Constrained, Austria, 2020, UN-adjusted |
+| `vienna_cropped_population.tif` | the same raster clipped to the city of Vienna | generated in [Raster Data Format](../module_5/rasters_1.ipynb) |
+| `vienna_cropped_population_utm.tif` | the clipped raster reprojected into UTM | generated in [Raster Data Format](../module_5/rasters_1.ipynb) |
+
+### `data/leopoldstadt/` — Leopoldstadt (module 6)
+
+A small case study prepared in advance, so that the final module is about mapping rather than data collection. Leopoldstadt is the second district of Vienna, an island between the Danube and the Danube Canal.
+
+| File | Content | Source |
+| --- | --- | --- |
+| `area.geojson` | boundary of the district | OpenStreetMap |
+| `landuse.geojson` | land use polygons, classified at three levels (`LEV1`/`LEV2`/`LEV3`) | Realnutzungskartierung Wien 2024 (`ogdwien:REALNUT2024OGD`) |
+| `metro.geojson` | U-Bahn stations | OpenStreetMap |
 | `isochrones.geojson` | walking isochrones of 5, 10 and 15 minutes from the stations | built with [OpenRouteService](https://openrouteservice.org) |
+
+The land use layer is the one file here that is not from OpenStreetMap: in Vienna the OSM `landuse` tag covers only about two thirds of the district, and most of its polygons are individual lawns, so the city's own survey makes for a far better mapping exercise.
+
+These four files are rebuilt by [`scripts/build_leopoldstadt.py`](https://github.com/bella-mir/geoPythonEn/blob/main/scripts/build_leopoldstadt.py); changing one constant in it produces the same set for any other district.
 
 ### Images and cache
 

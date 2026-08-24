@@ -1,0 +1,16 @@
+{
+"type": "FeatureCollection",
+"name": "metro",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "element": "node", "id": 4073135889, "name": "Donaumarina" }, "geometry": { "type": "Point", "coordinates": [ 16.431461, 48.2063838 ] } },
+{ "type": "Feature", "properties": { "element": "node", "id": 4073146389, "name": "Krieau" }, "geometry": { "type": "Point", "coordinates": [ 16.4137446, 48.2146912 ] } },
+{ "type": "Feature", "properties": { "element": "node", "id": 3862884256, "name": "Messe – Prater" }, "geometry": { "type": "Point", "coordinates": [ 16.4049308, 48.2177786 ] } },
+{ "type": "Feature", "properties": { "element": "node", "id": 4174037289, "name": "Nestroyplatz" }, "geometry": { "type": "Point", "coordinates": [ 16.3854553, 48.2152547 ] } },
+{ "type": "Feature", "properties": { "element": "node", "id": 3862884757, "name": "Praterstern" }, "geometry": { "type": "Point", "coordinates": [ 16.3930785, 48.2197676 ] } },
+{ "type": "Feature", "properties": { "element": "node", "id": 4003977155, "name": "Schottenring" }, "geometry": { "type": "Point", "coordinates": [ 16.3724555, 48.2174157 ] } },
+{ "type": "Feature", "properties": { "element": "node", "id": 4073027290, "name": "Stadion" }, "geometry": { "type": "Point", "coordinates": [ 16.4204937, 48.2104985 ] } },
+{ "type": "Feature", "properties": { "element": "node", "id": 4086541541, "name": "Taborstraße" }, "geometry": { "type": "Point", "coordinates": [ 16.3813216, 48.2192181 ] } },
+{ "type": "Feature", "properties": { "element": "node", "id": 4169757308, "name": "Vorgartenstraße" }, "geometry": { "type": "Point", "coordinates": [ 16.4010515, 48.2236245 ] } }
+]
+}
