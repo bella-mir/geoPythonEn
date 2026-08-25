@@ -106,7 +106,7 @@ A small case study prepared in advance, so that the final module is about mappin
 | `area.geojson` | boundary of the district | OpenStreetMap |
 | `landuse.geojson` | land use polygons, classified at three levels (`LEV1`/`LEV2`/`LEV3`) | Realnutzungskartierung Wien 2024 (`ogdwien:REALNUT2024OGD`) |
 | `metro.geojson` | U-Bahn stations | OpenStreetMap |
-| `isochrones.geojson` | walking isochrones of 5, 10 and 15 minutes from the stations | built with [OpenRouteService](https://openrouteservice.org) |
+| `isochrones.geojson` | walking isochrones of 5, 10 and 15 minutes from the stations, each carrying the number of residents it reaches | zones from [OpenRouteService](https://openrouteservice.org), population from WorldPop |
 
 The land use layer is the one file here that is not from OpenStreetMap — in Vienna the OSM `landuse` tag covers only about two thirds of the district.
 

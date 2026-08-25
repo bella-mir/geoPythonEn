@@ -5,7 +5,8 @@ Builds the four layers that notebooks/module_6/map_1.ipynb reads:
     area.geojson        district boundary                       (OpenStreetMap)
     landuse.geojson     land use polygons                       (City of Vienna)
     metro.geojson       U-Bahn stations                         (OpenStreetMap)
-    isochrones.geojson  5/10/15-minute walking isochrones       (OpenRouteService)
+    isochrones.geojson  5/10/15-minute walking isochrones       (OpenRouteService),
+                        each carrying the population it reaches  (WorldPop)
 
 The OpenRouteService key is read from notebooks/module_4/.env (git-ignored).
 """
@@ -17,8 +18,10 @@ from pathlib import Path
 
 import geopandas as gpd
 import osmnx as ox
+import rasterio
 import pandas as pd
 import requests
+from rasterio.mask import mask
 
 warnings.filterwarnings("ignore")
 
@@ -138,6 +141,33 @@ isochrones = gpd.GeoDataFrame(
                 "geometry"]],
     crs="EPSG:4326",
 )
+# --- 5. how many people each zone reaches -----------------------------------
+# The project's question is about people, not area, so each isochrone carries the
+# population it covers. The zones are clipped to the district first: they spill
+# well past its boundary, and uncut they would count residents of other districts.
+raster = ROOT / "data" / "austria" / "austria_population.tif"
+
+with rasterio.open(raster) as population:
+    zones = (
+        isochrones[["value", "geometry"]]
+        .dissolve(by="value")                       # one shape per threshold
+        .reset_index()
+        .to_crs(population.crs)
+    )
+    district = polygon_gdf = area.to_crs(population.crs).geometry.iloc[0]
+
+    def people_in(geometry):
+        counts, _ = mask(population, [geometry], crop=True, filled=False)
+        return round(float(counts.sum()))
+
+    reached = {
+        row["value"]: people_in(row.geometry.intersection(district))
+        for _, row in zones.iterrows()
+    }
+
+isochrones["population"] = isochrones["value"].map(reached)
+
 isochrones.to_file(OUT / "isochrones.geojson", driver="GeoJSON")
 print(f"isochrones.geojson {len(isochrones)} features "
-      f"({len(metro)} stations x {len(RANGES)} thresholds)")
+      f"({len(metro)} stations x {len(RANGES)} thresholds), "
+      f"reaching {reached[max(reached)]:,} of the district's residents")
