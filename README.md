@@ -37,6 +37,8 @@ If these materials are useful in your work or your teaching, please cite them:
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22081080.svg)](https://doi.org/10.5281/zenodo.22081080)
 
-The materials are published under the [CC BY 4.0](LICENSE) licence: you are free to share and adapt them, including commercially, as long as you give credit.
+The materials are published under the [CC BY-NC-SA 4.0](LICENSE) licence: you are free to share and adapt them for **non-commercial** purposes, as long as you give credit and release anything you build on them under the same licence.
+
+**The data keeps its own licences:** CC BY 4.0 for the City of Vienna and WorldPop, ODbL for OpenStreetMap — see [Course Modules](notebooks/module_0/syllabus.md).
 
 > Adapted from the author's Russian course at [geo-python.ru](https://geo-python.ru), with some materials and datasets replaced or updated. Translation was assisted by Claude AI and proofread by the author.
