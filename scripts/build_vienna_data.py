@@ -130,8 +130,8 @@ print(f"vienna_playgrounds_shp  {len(playgrounds)} playgrounds")
 
 # --- population raster -------------------------------------------------------
 raster_url = (
-    "https://data.worldpop.org/GIS/Population/Global_2000_2020_Constrained"
-    "/2020/BSGM/AUT/aut_ppp_2020_UNadj_constrained.tif"
+    "https://data.worldpop.org/GIS/Population/Global_2015_2030/R2025A"
+    "/2025/AUT/v1/100m/constrained/aut_pop_2025_CN_100m_R2025A_v1.tif"
 )
 target = AUSTRIA / "austria_population.tif"
 with requests.get(raster_url, stream=True, timeout=600) as response:

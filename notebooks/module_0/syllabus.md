@@ -93,7 +93,7 @@ The published files use European conventions that Python does not assume by defa
 
 | File | Content | Source |
 | --- | --- | --- |
-| `austria_population.tif` | population raster covering Austria; each pixel holds a population count | [WorldPop](https://hub.worldpop.org), Global 2000–2020 Constrained, Austria, 2020, UN-adjusted |
+| `austria_population.tif` | population raster covering Austria; each pixel holds a population count | [WorldPop](https://hub.worldpop.org), Global 2015–2030 (R2025A), constrained, Austria, 2025 |
 | `vienna_cropped_population.tif` | the same raster clipped to the city of Vienna | generated in [Raster Data Format](../module_5/rasters_1.ipynb) |
 | `vienna_cropped_population_utm.tif` | the clipped raster reprojected into UTM | generated in [Raster Data Format](../module_5/rasters_1.ipynb) |
 
