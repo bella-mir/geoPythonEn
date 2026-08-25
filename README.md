@@ -4,7 +4,7 @@ An open interactive guide to **working with spatial data in Python**.
 
 ## Structure
 
-Only a basic understanding of Python is required — these materials suit anyone interested in spatial analysis.
+Only a basic understanding of Python is required – these materials suit anyone interested in spatial analysis.
 
 They are published as a [Jupyter Book](https://bella-mir.github.io/geoPythonEn/) built from a collection of Jupyter notebooks.
 
@@ -25,7 +25,7 @@ Main topics:
 
 ## The Course Project
 
-**The modules are linked together into a single project.** Each one ends with a hands-on assignment — one stage of an analysis of **how accessible everyday amenities are in a city of your choice**, in the spirit of the 15-minute city.
+**The modules are linked together into a single project.** Each one ends with a hands-on assignment – one stage of an analysis of **how accessible everyday amenities are in a city of your choice**, in the spirit of the 15-minute city.
 
 Each assignment is a Jupyter notebook with a suggested sequence of steps, so the techniques from the module are applied to a city you care about rather than to the example data.
 
@@ -39,6 +39,6 @@ If these materials are useful in your work or your teaching, please cite them:
 
 The materials are published under the [CC BY-NC-SA 4.0](LICENSE) licence: you are free to share and adapt them for **non-commercial** purposes, as long as you give credit and release anything you build on them under the same licence.
 
-**The data keeps its own licences:** CC BY 4.0 for the City of Vienna and WorldPop, ODbL for OpenStreetMap — see [Course Modules](notebooks/module_0/syllabus.md).
+**The data keeps its own licences:** CC BY 4.0 for the City of Vienna and WorldPop, ODbL for OpenStreetMap – see [Course Modules](notebooks/module_0/syllabus.md).
 
 > Adapted from the author's Russian course at [geo-python.ru](https://geo-python.ru), with some materials and datasets replaced or updated. Translation was assisted by Claude AI and proofread by the author.

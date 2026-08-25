@@ -4,11 +4,11 @@ This section walks you through setting up your working environment: choosing a c
 
 If you already have everything set up, feel free to skip this section.
 
-> **Recommended Python version: 3.13.** The course materials are pinned to Python `>=3.12,<3.14` (see `pyproject.toml`), and everything — notebooks, library versions, compatibility — is tested on 3.13.
+> **Recommended Python version: 3.13.** The course materials are pinned to Python `>=3.12,<3.14` (see `pyproject.toml`), and everything – notebooks, library versions, compatibility – is tested on 3.13.
 
 ## Tools
 
-In this course we work in **Visual Studio Code (VS Code)** with the **Jupyter** extension. This lets you run `.ipynb` notebooks directly inside the editor — no separate browser application needed.
+In this course we work in **Visual Studio Code (VS Code)** with the **Jupyter** extension. This lets you run `.ipynb` notebooks directly inside the editor – no separate browser application needed.
 
 **Jupyter Notebook** is an interactive environment for creating documents that combine code, text, images, and output. Code runs in individual cells, making it easy to work with data step by step.
 
@@ -20,7 +20,7 @@ Before diving into installation, it helps to understand how Jupyter works.
 
 A **kernel** is a background process that executes the code in your notebook. When you press `Shift + Enter`, the code from the current cell is sent to the kernel, the kernel runs it, and the result is sent back to the notebook.
 
-The kernel is tied to a specific Python virtual environment. This means it is important to select the correct environment when you open a notebook — otherwise the libraries you need may not be available.
+The kernel is tied to a specific Python virtual environment. This means it is important to select the correct environment when you open a notebook – otherwise the libraries you need may not be available.
 
 If the kernel stops responding, code will not run. You can restart it at any time via `Ctrl+Shift+P → Jupyter: Restart Kernel`.
 
@@ -170,11 +170,11 @@ To run notebooks you also need a Jupyter kernel. VS Code offers to install `ipyk
 uv add ipykernel
 ```
 
-### 4.3. Alternative — using pip
+### 4.3. Alternative – using pip
 
 > Use this approach only if `uv` is unavailable for some reason.
 
-First, make sure Python is installed (3.12 or 3.13 — download from [python.org](https://www.python.org/downloads) and **check the box** `Add Python to PATH` during installation). Then create a virtual environment:
+First, make sure Python is installed (3.12 or 3.13 – download from [python.org](https://www.python.org/downloads) and **check the box** `Add Python to PATH` during installation). Then create a virtual environment:
 
 ```bash
 python -m venv myenv
@@ -210,8 +210,8 @@ pip install -r requirements.txt
 ## 6. Additional Tips
 
 - Useful shortcuts:
-  - `Ctrl + /` — comment or uncomment code.
-  - `Alt + Up/Down` — move a cell up or down (press `Esc` first; inside a cell the same shortcut moves the current line).
+  - `Ctrl + /` – comment or uncomment code.
+  - `Alt + Up/Down` – move a cell up or down (press `Esc` first; inside a cell the same shortcut moves the current line).
 - If the kernel stops responding:
   - Restart it via `Ctrl+Shift+P → Jupyter: Restart Kernel`.
 - Documentation:

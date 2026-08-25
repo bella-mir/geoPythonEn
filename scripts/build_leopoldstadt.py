@@ -49,7 +49,7 @@ polygon = area.geometry.iloc[0]
 
 
 # --- 2. land use -------------------------------------------------------------
-# OpenStreetMap maps land use in Vienna only patchily — it covers about two thirds
+# OpenStreetMap maps land use in Vienna only patchily – it covers about two thirds
 # of this district, and seven polygons in eight are an individual lawn or flowerbed.
 # The city's own survey (Realnutzungskartierung) is a complete partition of the
 # area with a three-level classification, so we take the layer from there.
@@ -86,7 +86,7 @@ metro = metro[["element", "id", "name", "geometry"]].reset_index(drop=True)
 
 # The line number is not on the OSM node, so we take it from the city's own station
 # layer (data/vienna/vienna_metro.geojson, written by build_vienna_data.py), matching
-# on position rather than on name: the two sources spell some stations differently —
+# on position rather than on name: the two sources spell some stations differently –
 # "Messe - Prater" in OSM against "Messe Prater" in the city register.
 city = gpd.read_file(ROOT / "data" / "vienna" / "vienna_metro.geojson")[["line", "geometry"]]
 utm = metro.estimate_utm_crs()
@@ -126,7 +126,7 @@ for start in range(0, len(metro), batch_size):
         raise SystemExit(f"ORS {response.status_code}: {response.text[:400]}")
 
     part = gpd.GeoDataFrame.from_features(response.json()["features"], crs="EPSG:4326")
-    # group_index is local to each request — shift it onto the global station index
+    # group_index is local to each request – shift it onto the global station index
     part["station_id"] = part["group_index"].astype(int) + start
     frames.append(part)
 

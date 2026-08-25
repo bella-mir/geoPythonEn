@@ -1,4 +1,4 @@
-"""Generates webmercator_tiles.png — why the Web Mercator world is a square.
+"""Generates webmercator_tiles.png – why the Web Mercator world is a square.
 
 Cutting the map off at ±85.05° of latitude makes its extent identical in x and
 y, so the world divides into an exact quadtree of tiles: 1, then 4, then 16.
@@ -55,7 +55,7 @@ for zoom, ax in enumerate(axes):
         ax.plot([edge] * 2, [-1, 1], color=TEAL, linewidth=2, zorder=4)
         ax.plot([-1, 1], [edge] * 2, color=TEAL, linewidth=2, zorder=4)
 
-    ax.set_title(f"zoom {zoom} — {tiles ** 2} tile{'s' if tiles > 1 else ''}",
+    ax.set_title(f"zoom {zoom} – {tiles ** 2} tile{'s' if tiles > 1 else ''}",
                  fontsize=11, color=INK, pad=10)
     ax.set_xlim(-1.3, 1.3)
     ax.set_ylim(-1.3, 1.3)

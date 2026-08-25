@@ -2,7 +2,7 @@
 
 The course is organised into **six thematic modules**, each containing several sections.
 
-Each module comes with a practice assignment — a stage of a larger project in which you assess the everyday accessibility of a city of your choice through the lens of the 15-minute city concept.
+Each module comes with a practice assignment – a stage of a larger project in which you assess the everyday accessibility of a city of your choice through the lens of the 15-minute city concept.
 
 ## [Module 1. Spatial Data](../module_1/spData_0.ipynb)
 
@@ -77,19 +77,19 @@ gdf = gpd.read_file("../../data/vienna/vienna_metro.geojson")
 
 Almost everything comes from the City of Vienna's open data portal, [data.wien.gv.at](https://data.wien.gv.at/), under a **CC BY 4.0** licence that asks for the attribution _Datenquelle: Stadt Wien – data.wien.gv.at_. The `ogdwien:` names in the tables below are its WFS layer names, and [`scripts/build_vienna_data.py`](https://github.com/bella-mir/geoPythonEn/blob/main/scripts/build_vienna_data.py) is the script that downloads every file.
 
-### `data/vienna/` — Vienna (modules 1–3)
+### `data/vienna/` – Vienna (modules 1–3)
 
 | File | Content | Source |
 | --- | --- | --- |
 | `vienna_admin.gpkg` | boundaries of the 23 districts and the 250 census districts (layers `district` and `zaehlbezirk`) | [Bezirksgrenzen Wien](https://www.data.gv.at/katalog/dataset/stadt-wien_bezirksgrenzenwien) (`ogdwien:BEZIRKSGRENZEOGD`) and Zählbezirke Wien (`ogdwien:ZAEHLBEZIRKOGD`) |
 | `vienna_metro.geojson` | U-Bahn stations, with line number and year of opening | U-Bahnhaltestellen Wien (`ogdwien:UBAHNHALTOGD`) |
-| `vienna_top_locations.csv` | ~135 well-known places to visit — museums, cafés, concert halls, shops — with coordinates in `geo_latitude` and `geo_longitude` | [Top Locations Wien](https://www.data.gv.at/katalog/dataset/45d684ca-6ad7-4c5e-a721-64aa31795824) |
+| `vienna_top_locations.csv` | ~135 well-known places to visit – museums, cafés, concert halls, shops – with coordinates in `geo_latitude` and `geo_longitude` | [Top Locations Wien](https://www.data.gv.at/katalog/dataset/45d684ca-6ad7-4c5e-a721-64aa31795824) |
 | `vienna_buildings.csv` | the city's building register: year of construction, storeys, type of use, architect; geometry as WKT text in the `SHAPE` column | Gebäudeinfo Wien (`ogdwien:GEBAEUDEINFOOGD`) |
 | `vienna_playgrounds_shp/` | public playgrounds, as a shapefile | Spielplätze Wien (`ogdwien:SPIELPLATZPUNKTOGD`) |
 
 The published files use European conventions that Python does not assume by default: `vienna_top_locations.csv` is semicolon-separated, with a comma as the decimal mark.
 
-### `data/austria/` — Austria (module 5)
+### `data/austria/` – Austria (module 5)
 
 | File | Content | Source |
 | --- | --- | --- |
@@ -97,7 +97,7 @@ The published files use European conventions that Python does not assume by defa
 | `vienna_cropped_population.tif` | the same raster clipped to the city of Vienna | generated in [Raster Data Format](../module_5/rasters_1.ipynb) |
 | `vienna_cropped_population_utm.tif` | the clipped raster reprojected into UTM | generated in [Raster Data Format](../module_5/rasters_1.ipynb) |
 
-### `data/leopoldstadt/` — Leopoldstadt (module 6)
+### `data/leopoldstadt/` – Leopoldstadt (module 6)
 
 A small case study prepared in advance, so that the final module is about mapping rather than data collection. Leopoldstadt is the second district of Vienna, an island between the Danube and the Danube Canal.
 
@@ -108,7 +108,7 @@ A small case study prepared in advance, so that the final module is about mappin
 | `metro.geojson` | U-Bahn stations | OpenStreetMap |
 | `isochrones.geojson` | walking isochrones of 5, 10 and 15 minutes from the stations, each carrying the number of residents it reaches | zones from [OpenRouteService](https://openrouteservice.org), population from WorldPop |
 
-The land use layer is the one file here that is not from OpenStreetMap — in Vienna the OSM `landuse` tag covers only about two thirds of the district.
+The land use layer is the one file here that is not from OpenStreetMap – in Vienna the OSM `landuse` tag covers only about two thirds of the district.
 
 These four files are rebuilt by [`scripts/build_leopoldstadt.py`](https://github.com/bella-mir/geoPythonEn/blob/main/scripts/build_leopoldstadt.py); changing one constant in it produces the same set for any other district.
 

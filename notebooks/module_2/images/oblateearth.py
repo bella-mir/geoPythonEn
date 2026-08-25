@@ -1,4 +1,4 @@
-"""Generates oblateearth.png — the sphere vs. reference ellipsoid diagram.
+"""Generates oblateearth.png – the sphere vs. reference ellipsoid diagram.
 
 Run from this folder:  python oblateearth.py
 """
@@ -39,7 +39,7 @@ ax.text(-0.78, 0.05, "Equator", fontsize=9, color="#5A5A5A")
 ax.text(0, b + 0.05, "N", ha="center", fontsize=12)
 ax.text(0, -b - 0.05, "S", ha="center", va="top", fontsize=12)
 
-ax.text(0, -1.22, "Sphere (dashed) vs. reference ellipsoid — flattening exaggerated",
+ax.text(0, -1.22, "Sphere (dashed) vs. reference ellipsoid – flattening exaggerated",
         ha="center", fontsize=9, color="#5A5A5A")
 
 ax.set_xlim(-1.35, 1.6)
