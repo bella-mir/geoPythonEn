@@ -33,7 +33,7 @@ _Coordinate systems are handled by `pyproj`, which GeoPandas uses under the hood
 
 - basic geometry operations: buffer, dissolve, clip
 - spatial predicates
-- spatial joins
+- spatial joins: by containment and to the nearest feature
 - aggregating point data by polygon (feature counts and attribute statistics)
 
 Libraries: `geopandas`, `pandas`, `shapely`, `osmnx`, `matplotlib`
