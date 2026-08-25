@@ -96,43 +96,6 @@ In the **Explorer** panel, click the **New File** icon and enter a filename with
 
 ---
 
-### 2.5. Getting the Course Data
-
-The notebooks work on prepared datasets – Vienna's districts and buildings, U-Bahn stations, a population raster – kept in a `data/` folder. Every file and where it came from is listed in [Course Modules](syllabus.md); this is how to get the folder onto your computer.
-
-Run this once from your project folder. It downloads `data/` and nothing else:
-
-```python
-import io, urllib.request, zipfile, shutil, pathlib
-
-url = "https://github.com/bella-mir/geoPythonEn/archive/refs/heads/main.zip"
-with urllib.request.urlopen(url) as response:
-    archive = zipfile.ZipFile(io.BytesIO(response.read()))
-
-for name in archive.namelist():
-    if "/data/" in name and not name.endswith("/"):
-        target = pathlib.Path("data") / name.split("/data/", 1)[1]
-        target.parent.mkdir(parents=True, exist_ok=True)
-        with archive.open(name) as source, open(target, "wb") as handle:
-            shutil.copyfileobj(source, handle)
-
-print("data/ is ready")
-```
-
-It uses only the standard library, so it runs before you have installed anything else. The download is about 30 MB and unpacks to roughly 40 MB on disk, most of it the population raster of module 5.
-
-Prefer not to run code for this? Open the [repository](https://github.com/bella-mir/geoPythonEn), press **Code → Download ZIP**, unpack it, and move the `data` folder next to your notebook.
-
-**Where the folder sits matters.** The notebooks published in this book live two levels deep, in `notebooks/module_1/` and so on, so they reach the data as `../../data/vienna/vienna_metro.geojson`. In your own project, with `data/` sitting next to your notebook, drop the `../../`:
-
-```python
-gdf = gpd.read_file("data/vienna/vienna_metro.geojson")
-```
-
-When a read fails with `FileNotFoundError`, this is nearly always the reason: the path was written for a different folder layout. The file is there; the notebook is looking somewhere else.
-
----
-
 ## 3. Setting Up a Virtual Environment with uv
 
 `uv` creates environments quickly and with the correct Python version from the start.
@@ -185,7 +148,7 @@ There are two situations here, and they need different commands.
 
 ### 4.1. You cloned the course repository
 
-This is the short route, and it is worth taking if you already use git. Cloning brings the whole course down at once – the notebooks, the `data/` folder, and the pinned dependency files – so it replaces both the project folder of section 2 and the data download of section 2.5:
+This is the short route, and it is worth taking if you already use git. Cloning brings the whole course down at once – the notebooks, the `data/` folder, and the pinned dependency files – so it replaces both the project folder of section 2 and the data download of section 5:
 
 ```bash
 git clone https://github.com/bella-mir/geoPythonEn.git
@@ -243,9 +206,49 @@ pip install -r requirements.txt
 
 ---
 
-## 5. Basic Features
+## 5. Getting the Course Data
 
-### 5.1. Running Cells
+The notebooks work on prepared datasets – Vienna's districts and buildings, U-Bahn stations, a population raster – kept in a `data/` folder. Every file and where it came from is listed in [Course Modules](syllabus.md).
+
+**[Download data.zip](https://github.com/bella-mir/geoPythonEn/releases/latest/download/data.zip)** (about 28 MB), unpack it, and put the `data` folder into your project, next to your notebook. That link always serves the data of the most recent release, so it does not go stale.
+
+Or do the same from a notebook cell:
+
+```python
+import urllib.request, shutil, os
+
+url = "https://github.com/bella-mir/geoPythonEn/releases/latest/download/data.zip"
+urllib.request.urlretrieve(url, "data.zip")
+shutil.unpack_archive("data.zip")
+
+os.remove("data.zip")
+```
+
+Your project folder should now look like this:
+
+```
+my-course-folder/
+├── data/
+│   ├── austria/
+│   ├── leopoldstadt/
+│   └── vienna/
+├── notebook.ipynb
+└── pyproject.toml
+```
+
+**Where the folder sits matters.** The notebooks published in this book live two levels deep, in `notebooks/module_1/` and so on, so they reach the data as `../../data/vienna/vienna_metro.geojson`. In your own project, with `data/` sitting next to your notebook, drop the `../../`:
+
+```python
+gdf = gpd.read_file("data/vienna/vienna_metro.geojson")
+```
+
+When a read fails with `FileNotFoundError`, this is nearly always the reason: the path was written for a different folder layout. The file is there; the notebook is looking somewhere else.
+
+---
+
+## 6. Basic Features
+
+### 6.1. Running Cells
 
 - **Run a cell**: `Shift + Enter`.
 - **Add a code cell**: click `+ Code` in the toolbar, or press `Esc` to leave the cell and then `B` (below) / `A` (above).
@@ -253,7 +256,7 @@ pip install -r requirements.txt
 
 ---
 
-## 6. Additional Tips
+## 7. Additional Tips
 
 - Useful shortcuts:
   - `Ctrl + /` – comment or uncomment code.
