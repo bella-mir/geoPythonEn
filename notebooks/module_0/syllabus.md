@@ -69,7 +69,7 @@ Libraries: `folium`, `geopandas`
 
 ## Data
 
-All datasets used in the notebooks live in a single `data/` folder at the root of the repository. Notebooks read them through a relative path:
+All datasets used in the notebooks live in a single `data/` folder at the root of the repository – [Setting Up Your Environment](setup.md) shows how to download it into your own project. Notebooks read them through a relative path:
 
 ```python
 gdf = gpd.read_file("../../data/vienna/vienna_metro.geojson")

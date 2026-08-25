@@ -28,7 +28,9 @@ identifiers:
   - type: doi
     value: 10.5281/zenodo.22081081
     description: Version 1.0.0
-  # add the version DOI Zenodo mints for 2.0.0 once the release is archived
+  - type: doi
+    value: 10.5281/zenodo.22092848
+    description: Version 2.0.0
 references:
   - type: dataset
     title: Геоаналитика на Python

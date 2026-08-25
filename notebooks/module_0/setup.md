@@ -96,6 +96,43 @@ In the **Explorer** panel, click the **New File** icon and enter a filename with
 
 ---
 
+### 2.5. Getting the Course Data
+
+The notebooks work on prepared datasets – Vienna's districts and buildings, U-Bahn stations, a population raster – kept in a `data/` folder. Every file and where it came from is listed in [Course Modules](syllabus.md); this is how to get the folder onto your computer.
+
+Run this once from your project folder. It downloads `data/` and nothing else:
+
+```python
+import io, urllib.request, zipfile, shutil, pathlib
+
+url = "https://github.com/bella-mir/geoPythonEn/archive/refs/heads/main.zip"
+with urllib.request.urlopen(url) as response:
+    archive = zipfile.ZipFile(io.BytesIO(response.read()))
+
+for name in archive.namelist():
+    if "/data/" in name and not name.endswith("/"):
+        target = pathlib.Path("data") / name.split("/data/", 1)[1]
+        target.parent.mkdir(parents=True, exist_ok=True)
+        with archive.open(name) as source, open(target, "wb") as handle:
+            shutil.copyfileobj(source, handle)
+
+print("data/ is ready")
+```
+
+It uses only the standard library, so it runs before you have installed anything else. The download is about 30 MB and unpacks to roughly 40 MB on disk, most of it the population raster of module 5.
+
+Prefer not to run code for this? Open the [repository](https://github.com/bella-mir/geoPythonEn), press **Code → Download ZIP**, unpack it, and move the `data` folder next to your notebook.
+
+**Where the folder sits matters.** The notebooks published in this book live two levels deep, in `notebooks/module_1/` and so on, so they reach the data as `../../data/vienna/vienna_metro.geojson`. In your own project, with `data/` sitting next to your notebook, drop the `../../`:
+
+```python
+gdf = gpd.read_file("data/vienna/vienna_metro.geojson")
+```
+
+When a read fails with `FileNotFoundError`, this is nearly always the reason: the path was written for a different folder layout. The file is there; the notebook is looking somewhere else.
+
+---
+
 ## 3. Setting Up a Virtual Environment with uv
 
 `uv` creates environments quickly and with the correct Python version from the start.
@@ -148,11 +185,20 @@ There are two situations here, and they need different commands.
 
 ### 4.1. You cloned the course repository
 
+This is the short route, and it is worth taking if you already use git. Cloning brings the whole course down at once – the notebooks, the `data/` folder, and the pinned dependency files – so it replaces both the project folder of section 2 and the data download of section 2.5:
+
+```bash
+git clone https://github.com/bella-mir/geoPythonEn.git
+cd geoPythonEn
+```
+
 The repository already contains `pyproject.toml` and `uv.lock` with the exact versions everything was tested with. One command installs all of them:
 
 ```bash
 uv sync
 ```
+
+Open that folder in VS Code and the notebooks run where they sit: their `../../data/...` paths are already correct, because the layout around them is the one they were written for.
 
 ### 4.2. You are working in your own project folder
 
