@@ -8,8 +8,8 @@ authors:
 abstract: >-
   An open interactive guide to working with spatial data in Python: spatial data
   formats, coordinate reference systems, geoprocessing, network analysis, raster
-  analysis and interactive maps, built around a single project on the
-  accessibility of everyday amenities in a city.
+  analysis, and cartography with both static and interactive maps, built around a
+  single project on the accessibility of everyday amenities in a city.
 keywords:
   - geospatial analysis
   - python
@@ -21,8 +21,8 @@ keywords:
 license: CC-BY-NC-SA-4.0
 repository-code: https://github.com/bella-mir/geoPythonEn
 url: https://bella-mir.github.io/geoPythonEn/
-version: 2.1.0
-date-released: "2026-08-25"
+version: 2.2.0
+date-released: "2026-09-02"
 doi: 10.5281/zenodo.22081080   # concept DOI: always the latest version
 identifiers:
   - type: doi
@@ -31,6 +31,9 @@ identifiers:
   - type: doi
     value: 10.5281/zenodo.22092848
     description: Version 2.0.0
+  - type: doi
+    value: 10.5281/zenodo.22101821
+    description: Version 2.1.0
 references:
   - type: dataset
     title: Геоаналитика на Python
