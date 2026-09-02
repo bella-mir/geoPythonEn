@@ -81,7 +81,7 @@ Almost everything comes from the City of Vienna's open data portal, [data.wien.g
 
 | File | Content | Source |
 | --- | --- | --- |
-| `vienna_admin.gpkg` | boundaries of the 23 districts and the 250 census districts (layers `district` and `zaehlbezirk`) | [Bezirksgrenzen Wien](https://www.data.gv.at/katalog/dataset/stadt-wien_bezirksgrenzenwien) (`ogdwien:BEZIRKSGRENZEOGD`) and Zählbezirke Wien (`ogdwien:ZAEHLBEZIRKOGD`) |
+| `vienna_admin.gpkg` | boundaries of the 23 districts and the 250 census districts (layers `district` and `zaehlbezirk`) | Bezirksgrenzen Wien (`ogdwien:BEZIRKSGRENZEOGD`) and Zählbezirke Wien (`ogdwien:ZAEHLBEZIRKOGD`) |
 | `vienna_metro.geojson` | U-Bahn stations, with line number and year of opening | U-Bahnhaltestellen Wien (`ogdwien:UBAHNHALTOGD`) |
 | `vienna_top_locations.csv` | ~135 well-known places to visit – museums, cafés, concert halls, shops – with coordinates in `geo_latitude` and `geo_longitude` | [Top Locations Wien](https://www.data.gv.at/katalog/dataset/45d684ca-6ad7-4c5e-a721-64aa31795824) |
 | `vienna_buildings.csv` | the city's building register: year of construction, storeys, type of use, architect; geometry as WKT text in the `SHAPE` column | Gebäudeinfo Wien (`ogdwien:GEBAEUDEINFOOGD`) |
