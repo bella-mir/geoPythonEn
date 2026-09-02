@@ -2,7 +2,7 @@
 
 The course is organised into **six thematic modules**, each containing several sections.
 
-Each module comes with a practice assignment – a stage of a larger project in which you assess the everyday accessibility of a city of your choice through the lens of the 15-minute city concept.
+Each module comes with a practice assignment – a stage of a larger project in which you assess the everyday accessibility of a city of your choice through the lens of the 15-minute city concept, as set out by [Moreno et al. (2021)](https://doi.org/10.3390/smartcities4010006).
 
 ## [Module 1. Spatial Data](../module_1/spData_0.ipynb)
 
