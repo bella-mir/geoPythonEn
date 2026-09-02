@@ -19,7 +19,7 @@ Main topics:
 - [Core Geoprocessing Tools](notebooks/module_3/geoprocessing_0.ipynb)
 - [Fundamentals of Network Analysis](notebooks/module_4/networkAnalysis_0.ipynb)
 - [Raster Analysis](notebooks/module_5/rasters_0.ipynb)
-- [Interactive Visualisation](notebooks/module_6/map_0.ipynb)
+- [Cartography and Visualisation](notebooks/module_6/map_0.ipynb)
 
 [Course Modules](notebooks/module_0/syllabus.md) sets out the topics and libraries of each module, and [Setting Up Your Environment](notebooks/module_0/setup.md) walks through the installation.
 

@@ -141,6 +141,7 @@ click==8.3.3 \
     #   click-plugins
     #   cligj
     #   fiona
+    #   mercantile
     #   rasterio
     #   rasterstats
 click-plugins==1.1.1.2 \
@@ -165,6 +166,10 @@ comm==0.2.3 \
     --hash=sha256:2dc8048c10962d55d7ad693be1e7045d891b7ce8d999c97963a5e3e99c055971 \
     --hash=sha256:c615d91d75f7f04f095b30d1c1711babd43bdc6419c1be9886a85f2f4e489417
     # via ipykernel
+contextily==1.7.1 \
+    --hash=sha256:82ca36a4a51cf49e43700ad1113b50531b3637e4f12b407b54e0a1fd8950a49c \
+    --hash=sha256:e00372357a93a9028f75ea7343d867893bd8d4b89833de17b18438725929c885
+    # via geopythonen
 contourpy==1.3.3 \
     --hash=sha256:023b44101dfe49d7d53932be418477dba359649246075c996866106da069af69 \
     --hash=sha256:07ce5ed73ecdc4a03ffe3e1b3e3c1166db35ae7584be76f65dbbe28a7791b0cc \
@@ -276,12 +281,20 @@ fqdn==1.5.1 \
     --hash=sha256:105ed3677e767fb5ca086a0c1f4bb66ebc3c100be518f0e0d755d9eae164d89f \
     --hash=sha256:3a179af3761e4df6eb2e026ff9e1a3033d3587bf980a0b1b2e1e5d08d7358014
     # via jsonschema
+geographiclib==2.1 \
+    --hash=sha256:6a6545e6262d0ed3522e13c515713718797e37ed8c672c31ad7b249f372ef108 \
+    --hash=sha256:e2a873b9b9e7fc38721ad73d5f4e6c9ed140d428a339970f505c07056997d40b
+    # via geopy
 geopandas==1.1.3 \
     --hash=sha256:90d62a64f95eaa3be2ccc115c5f3d6e24208bb11983b390fdc0621a3eccd0230 \
     --hash=sha256:91a31989b6f566012838d21d5f8033f37dce882079ccb7cfdc40d5ccce7f284f
     # via
     #   geopythonen
     #   osmnx
+geopy==2.5.0 \
+    --hash=sha256:7b6c849f18108dcce4faa3d614e2801107b465f7b05fd3c1db9db12e225ae950 \
+    --hash=sha256:8ad8cc226b505ca4d272ae9a2eeba08b8a2c565fc9a04eaefc33ad49c32b51aa
+    # via contextily
 idna==3.14 \
     --hash=sha256:466d810d7a2cc1022bea9b037c39728d51ae7dad40d480fc9b7d7ecf98ba8ee3 \
     --hash=sha256:e677eaf072e290f7b725f9acf0b3a2bd55f9fd6f7c70abe5f0e34823d0accf69
@@ -324,7 +337,9 @@ jinja2==3.1.6 \
 joblib==1.5.3 \
     --hash=sha256:5fc3c5039fc5ca8c0276333a188bbd59d6b7ab37fe6632daa76bc7f9ec18e713 \
     --hash=sha256:8561a3269e6801106863fd0d6d84bb737be9e7631e33aaed3fb9ce5953688da3
-    # via scikit-learn
+    # via
+    #   contextily
+    #   scikit-learn
 jsonpointer==3.1.1 \
     --hash=sha256:0b801c7db33a904024f6004d526dcc53bbb8a4a0f4e32bfd10beadf60adf1900 \
     --hash=sha256:8ff8b95779d071ba472cf5bc913028df06031797532f08a7d5b602d8b2a488ca
@@ -491,13 +506,19 @@ matplotlib==3.10.9 \
     --hash=sha256:f0c3c28d9fbcc1fe7a03be236d73430cf6409c41fb2383a7ac52fe932b072cb1 \
     --hash=sha256:f4399f64b3e94cd500195490972ae1ee81170df1636fa15364d157d5bdd7b921 \
     --hash=sha256:fd66508e8c6877d98e586654b608a0456db8d7e8a546eb1e2600efd957302358
-    # via geopythonen
+    # via
+    #   contextily
+    #   geopythonen
 matplotlib-inline==0.2.2 \
     --hash=sha256:3c821cf1c209f59fb2d2d64abbf5b23b67bcb2210d663f9918dd851c6da1fcf6 \
     --hash=sha256:72f3fe8fce36b70d4a5b612f899090cd0401deddc4ea90e1572b9f4bfb058c79
     # via
     #   ipykernel
     #   ipython
+mercantile==1.2.1 \
+    --hash=sha256:30f457a73ee88261aab787b7069d85961a5703bb09dc57a170190bc042cd023f \
+    --hash=sha256:fa3c6db15daffd58454ac198b31887519a19caccee3f9d63d17ae7ff61b3b56b
+    # via contextily
 mistune==3.3.4 \
     --hash=sha256:58b5c96d6fcb61190dfe5fae498d2b2065f99cf61e9649418fd54cf1ada86dfe \
     --hash=sha256:ee015381e955e370962968befe1d729ab60fafb6a715ac6751763fbce38c8d4a
@@ -686,7 +707,9 @@ pillow==12.2.0 \
     --hash=sha256:f1c943e96e85df3d3478f7b691f229887e143f81fedab9b20205349ab04d73ed \
     --hash=sha256:f3f40b3c5a968281fd507d519e444c35f0ff171237f4fdde090dd60699458421 \
     --hash=sha256:fc3d34d4a8fbec3e88a79b92e5465e0f9b842b628675850d860b8bd300b159f5
-    # via matplotlib
+    # via
+    #   contextily
+    #   matplotlib
 platformdirs==4.2.2 \
     --hash=sha256:2d7a1657e36a80ea911db832a8a6ece5ee53d8de21edd5cc5879af6530b1bfee \
     --hash=sha256:38b7b51f512eed9e84a22788b4bce1de17c0adb134d6becb09836e37d8654cd3
@@ -931,6 +954,7 @@ rasterio==1.5.0 \
     --hash=sha256:e14d07a09833b6df6024ce7a57aee1e1977b3aec682e30b1e58ce773462f2382 \
     --hash=sha256:e7b25b0a19975ccd511e507e6de45b0a2d8fb6802abe49bb726cf48588e34833
     # via
+    #   contextily
     #   geopythonen
     #   rasterstats
 rasterstats==0.20.0 \
@@ -948,6 +972,7 @@ requests==2.34.0 \
     --hash=sha256:7d62fe92f50eb82c529b0916bb445afa1531a566fc8f35ffdc64446e771b856a \
     --hash=sha256:917520a21b767485ce7c588f4ebb917c436b24a31231b44228715eaeb5a52c60
     # via
+    #   contextily
     #   folium
     #   geopythonen
     #   osmnx
@@ -1252,4 +1277,6 @@ websocket-client==1.9.0 \
 xyzservices==2026.3.0 \
     --hash=sha256:503183d4b322bfebc3c50cdd21192aa3e81e36c5efbf9133d54ae82143e0576b \
     --hash=sha256:d226866a5d8e9fef337034d8da37a8298f0a1d9d1489b4018e69579eb321fea4
-    # via folium
+    # via
+    #   contextily
+    #   folium

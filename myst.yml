@@ -48,6 +48,8 @@ project:
     - file: notebooks/module_6/map_0.ipynb
       children:
       - file: notebooks/module_6/map_1.ipynb
+      - file: notebooks/module_6/map_3.ipynb
+      - file: notebooks/module_6/map_4.ipynb
       - file: notebooks/module_6/map_2.ipynb
       - file: notebooks/module_6/map_task.ipynb
     

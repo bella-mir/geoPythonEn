@@ -59,13 +59,15 @@ Libraries: `osmnx`, `networkx`, `geopandas`, `pandas`, `shapely`, `matplotlib`, 
 
 Libraries: `rasterio`, `rasterstats`, `geopandas`, `numpy`, `matplotlib`, `osmnx`
 
-## [Module 6. Interactive Visualisation](../module_6/map_0.ipynb)
+## [Module 6. Cartography and Visualisation](../module_6/map_0.ipynb)
 
 - interactive maps with Folium: layers, styles, tooltips, legend
 - map controls
+- static maps and charts with `matplotlib`, and basemaps with `contextily`
+- choropleths: classification methods and how the choice of class breaks changes the map
 - publishing to GitHub Pages
 
-Libraries: `folium`, `geopandas`
+Libraries: `folium`, `geopandas`, `matplotlib`, `mapclassify`, `contextily`, `rasterstats`
 
 ## Data
 
